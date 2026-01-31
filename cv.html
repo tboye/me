@@ -43,7 +43,7 @@
 
         /* ========== HEADER SECTION ========== */
         header {
-            padding: 28px 0 18px;
+            padding: 18px 0 14px;
             margin: 0 36px;
             border-top: 3px solid var(--primary-color);
             border-bottom: 1px solid var(--border-light);
@@ -62,20 +62,22 @@
             font-size: 0.85em;
             color: var(--text-light);
             font-weight: 400;
-            margin-bottom: 6px;
+            display: inline;
+            margin-left: 6px;
         }
 
         .subtitle {
             font-size: 1em;
             color: var(--primary-color);
-            margin-bottom: 2px;
+            margin-bottom: 8px;
             font-weight: 500;
         }
 
         .location {
             font-size: 0.85em;
             color: var(--text-light);
-            margin-bottom: 10px;
+            display: inline;
+            margin-left: 8px;
         }
 
         .contact {
@@ -322,7 +324,7 @@
 
         @page {
             size: A4;
-            margin: 3mm;
+            margin: 0 5mm;
         }
 
         /* ========== PAGE BREAKS ========== */
@@ -345,10 +347,8 @@
     <div class="container">
         <!-- ========== HEADER ========== -->
         <header>
-            <h1>Tatiana Boyé</h1>
-            <div class="pronouns">(they/them)</div>
-            <div class="subtitle">Sr. Engineering Manager</div>
-            <div class="location">Amsterdam, Netherlands</div>
+            <div><h1 style="display:inline">Tatiana Boyé</h1> <span class="pronouns">(they/them)</span></div>
+            <div class="subtitle">Sr. Engineering Manager <span class="location" style="margin-left: 16px">• <span style="margin-left: 4px">Amsterdam, Netherlands</span></span></div>
             <div class="contact">
                 <div class="contact-item"><a href="mailto:me@tboye.dev">me@tboye.dev</a></div>
                 <div class="contact-item"><a href="tel:+31614681686">+31 6 14681686</a></div>
