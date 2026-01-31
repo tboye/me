@@ -1,0 +1,512 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Tatiana Boyé – Sr. Engineering Manager</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Outfit:wght@400;500;600;700&display=swap" rel="stylesheet">
+    <style>
+        /* ========== DESIGN VARIABLES - CHANGE COLORS HERE ========== */
+        :root {
+            --primary-color: #4e709e;      /* Muted blue */
+            --primary-soft: #e0e7f0;        /* Tinted background */
+            --text-dark: #1a1a1a;          /* Headings */
+            --text-body: #374151;          /* Body text */
+            --text-light: #5a6472;         /* Meta info */
+            --bg-light: #f8f7f5;           /* Warm off-white */
+            --border-light: #d6d1cb;       /* Warm border */
+        }
+
+        /* ========== BASE STYLES ========== */
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'Outfit', -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif;
+            line-height: 1.6;
+            color: var(--text-dark);
+            background: #ffffff;
+            padding: 0;
+            margin: 0;
+        }
+
+        .container {
+            max-width: 820px;
+            margin: 0 auto;
+        }
+
+        /* ========== HEADER SECTION ========== */
+        header {
+            padding: 36px 0 20px;
+            margin: 0 44px;
+            border-top: 3px solid var(--primary-color);
+            border-bottom: 1px solid var(--border-light);
+        }
+
+        h1 {
+            font-family: 'Outfit', sans-serif;
+            font-size: 2.6em;
+            color: var(--text-dark);
+            margin-bottom: 2px;
+            font-weight: 700;
+            letter-spacing: -0.03em;
+        }
+
+        .pronouns {
+            font-size: 0.85em;
+            color: var(--text-light);
+            font-weight: 400;
+            margin-bottom: 8px;
+        }
+
+        .subtitle {
+            font-size: 1.1em;
+            color: var(--primary-color);
+            margin-bottom: 4px;
+            font-weight: 500;
+        }
+
+        .location {
+            font-size: 0.9em;
+            color: var(--text-light);
+            margin-bottom: 16px;
+        }
+
+        .contact {
+            font-size: 0.9em;
+            color: var(--text-light);
+            display: flex;
+            flex-wrap: wrap;
+            gap: 16px;
+        }
+
+        .contact-item {
+            display: flex;
+            align-items: center;
+        }
+
+        .contact-item + .contact-item::before {
+            content: "•";
+            margin-right: 16px;
+            color: var(--text-light);
+        }
+
+        .body-content {
+            padding: 20px 44px 44px;
+        }
+
+        /* ========== SECTIONS ========== */
+        section {
+            padding: 28px 0;
+            margin-top: 0;
+            border-top: 1px solid var(--border-light);
+        }
+
+        section:first-of-type {
+            border-top: none;
+            padding-top: 0;
+        }
+
+        /* ========== SECTION HEADINGS ========== */
+        h2 {
+            font-family: 'Outfit', sans-serif;
+            font-size: 0.85em;
+            color: var(--primary-color);
+            margin-top: 0;
+            margin-bottom: 16px;
+            padding-bottom: 0;
+            border-bottom: none;
+            font-weight: 600;
+            letter-spacing: 0.03em;
+            text-transform: uppercase;
+        }
+
+
+        h3 {
+            font-family: 'Outfit', sans-serif;
+        }
+
+        /* ========== SUMMARY ========== */
+        .summary {
+            font-size: 1.05em;
+            line-height: 1.7;
+            color: var(--text-body);
+            margin: 0;
+        }
+
+        /* ========== COMPETENCIES GRID ========== */
+        .competencies {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 25px;
+            margin-bottom: 20px;
+        }
+
+        .competency-group h3 {
+            font-size: 1.05em;
+            color: var(--primary-color);
+            margin-bottom: 10px;
+            font-weight: 600;
+        }
+
+        .competency-group ul {
+            list-style: none;
+            padding-left: 0;
+        }
+
+        .competency-group li {
+            padding-left: 18px;
+            position: relative;
+            margin-bottom: 6px;
+            font-size: 0.95em;
+            color: var(--text-body);
+        }
+
+        .competency-group li:before {
+            content: "–";
+            position: absolute;
+            left: 0;
+            color: var(--primary-color);
+        }
+
+        /* ========== TECH STACK BOX ========== */
+        .tech-stack {
+            padding: 16px 0 16px 20px;
+            font-size: 0.95em;
+            color: var(--text-body);
+            margin-bottom: 20px;
+            border-left: 3px solid var(--primary-color);
+        }
+
+        .tech-stack-note {
+            margin-top: 12px;
+            color: var(--text-light);
+        }
+
+        /* ========== JOB ENTRIES ========== */
+        .job + .job {
+            margin-top: 24px;
+            padding-top: 24px;
+            border-top: 1px solid var(--border-light);
+        }
+
+        .job-header {
+            display: flex;
+            justify-content: space-between;
+            align-items: baseline;
+            margin-bottom: 10px;
+        }
+
+        .job-title {
+            font-size: 1.05em;
+            font-weight: 600;
+            color: var(--text-dark);
+        }
+
+        .company {
+            color: var(--primary-color);
+            font-weight: 600;
+        }
+
+        .period {
+            color: var(--text-light);
+            font-style: normal;
+            font-size: 0.85em;
+            white-space: nowrap;
+            margin-left: 16px;
+        }
+
+        .job-description {
+            font-size: 0.95em;
+            color: var(--text-body);
+            margin-bottom: 10px;
+            line-height: 1.7;
+        }
+
+        .job ul {
+            margin-left: 18px;
+            margin-top: 10px;
+            list-style-type: "–  ";
+        }
+
+        .job li {
+            margin-bottom: 8px;
+            font-size: 0.95em;
+            color: var(--text-body);
+            line-height: 1.7;
+        }
+
+        .job li::marker {
+            color: var(--primary-color);
+        }
+
+        .job li strong {
+            color: var(--text-dark);
+        }
+
+        /* ========== EDUCATION & LANGUAGES ========== */
+        .degree {
+            font-weight: 600;
+            color: var(--text-dark);
+            font-size: 0.95em;
+            margin-bottom: 2px;
+        }
+
+        .field {
+            font-size: 0.9em;
+            color: var(--text-body);
+            margin-bottom: 2px;
+        }
+
+        .institution {
+            color: var(--text-light);
+            font-size: 0.88em;
+        }
+
+        .languages-list {
+            display: flex;
+            flex-direction: column;
+            gap: 4px;
+            font-size: 0.95em;
+        }
+
+        .language-item {
+            color: var(--text-body);
+        }
+
+        .language-item strong {
+            color: var(--text-dark);
+        }
+
+        .personal {
+            line-height: 1.7;
+            color: var(--text-body);
+            margin: 0;
+        }
+
+        .bottom-grid {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 0 48px;
+            border-top: 1px solid var(--border-light);
+            padding-top: 28px;
+            margin-top: 0;
+        }
+
+        .bottom-grid section {
+            padding: 0;
+            border-top: none;
+        }
+
+        .bottom-grid .full-width {
+            grid-column: 1 / -1;
+            margin-top: 24px;
+            padding-top: 24px;
+            border-top: 1px solid var(--border-light);
+        }
+
+        /* ========== LINKS ========== */
+        a {
+            color: var(--primary-color);
+            text-decoration: none;
+            font-weight: 500;
+        }
+
+
+    </style>
+</head>
+<body>
+    <div class="container">
+        <!-- ========== HEADER ========== -->
+        <header>
+            <h1>Tatiana Boyé</h1>
+            <div class="pronouns">(they/them)</div>
+            <div class="subtitle">Sr. Engineering Manager</div>
+            <div class="location">Amsterdam, Netherlands</div>
+            <div class="contact">
+                <div class="contact-item"><a href="mailto:me@tboye.dev">me@tboye.dev</a></div>
+                <div class="contact-item"><a href="tel:+31614681686">+31 6 14681686</a></div>
+                <div class="contact-item"><a href="https://linkedin.com/in/t-boye">linkedin.com/in/t-boye</a></div>
+                <div class="contact-item"><a href="https://github.com/tboye">github.com/tboye</a></div>
+            </div>
+        </header>
+
+        <div class="body-content">
+        <!-- ========== ABOUT ========== -->
+        <section>
+            <h2>About</h2>
+                <p class="summary">
+                    I build teams that people don't want to leave — combining empathy with high expectations,
+                    where engineers naturally grow while delivering products that matter. My background spans
+                    medical devices, automotive, and quantum computing. I still code regularly, care equally
+                    about commit messages and architecture, and keep things structured without being bureaucratic.
+                    Technical enough to guide engineering decisions, pragmatic enough to know when to ship and iterate.
+                </p>
+        </section>
+
+        <!-- ========== KEY COMPETENCIES ========== -->
+        <section>
+            <h2>Key competencies</h2>
+            <div class="competencies">
+                <div class="competency-group">
+                    <h3>Leadership</h3>
+                    <ul>
+                        <li>Building engineering orgs from zero</li>
+                        <li>Growing engineers into leads and managers</li>
+                        <li>Cross-functional collaboration that actually works</li>
+                        <li>Comfortable in ambiguity — no playbook needed</li>
+                        <li>High retention — people stay</li>
+                    </ul>
+                </div>
+                <div class="competency-group">
+                    <h3>Technical</h3>
+                    <ul>
+                        <li>Clean architecture & API design</li>
+                        <li>Automation-first — CI/CD, testing, workflows</li>
+                        <li>Agile without the dogma</li>
+                        <li>Hands-on and intend to stay that way</li>
+                        <li>High bar for UX, DX, and how code reads</li>
+                    </ul>
+                </div>
+            </div>
+            <div class="tech-stack">
+                <strong>Tech:</strong> Python • JavaScript • FastAPI • Flask • Vue • gRPC • PostgreSQL • MongoDB • Redis • Docker • AWS • Terraform • Ansible • GitHub Actions • GitLab • pytest • Playwright • Grafana • Sentry
+                <div class="tech-stack-note">
+                    Not a boundary — I pick up what the job needs.
+                </div>
+            </div>
+        </section>
+
+        <!-- ========== PROFESSIONAL EXPERIENCE ========== -->
+        <section>
+            <h2>Professional Experience</h2>
+
+            <!-- Qblox -->
+            <div class="job">
+                <div class="job-header">
+                    <div class="job-title"><span class="company">Qblox – Delft, Netherlands</span> | Head of Software</div>
+                    <div class="period">Jan 2022 – Present</div>
+                </div>
+                <p class="job-description">
+                    Promoted to Head of Software after building a test and automation engineering
+                    team from scratch. Now overseeing ~30 engineers across embedded, client software,
+                    and platform teams in a fast-moving deeptech environment.
+                </p>
+                <ul>
+                    <li>Grew the department from the ground up — hiring, structuring teams, building the management layer</li>
+                    <li>Introduced engineering practices and cross-team processes that stuck</li>
+                    <li>Scaled the org without losing the startup pace — kept decision-making fast and teams autonomous</li>
+                    <li>Bridged engineering, product, and science — teams that rarely speak the same language</li>
+                </ul>
+            </div>
+
+            <!-- EVBox -->
+            <div class="job">
+                <div class="job-header">
+                    <div class="job-title"><span class="company">EVBox – Amsterdam, Netherlands</span> | Team Lead, Test System Engineering</div>
+                    <div class="period">Jan 2020 – Dec 2021</div>
+                </div>
+                <p class="job-description">
+                    Led a 6-person team building an integrated hardware/software system for
+                    EV charger validation. Set up engineering processes while staying deep
+                    in the technical work.
+                </p>
+                <ul>
+                    <li>Led the design and development of the automated test platform end-to-end</li>
+                    <li>Brought structure to a greenfield team — code review, CI/CD, quality standards, ways of working</li>
+                    <li>Coached engineers while solving technical problems hands-on</li>
+                </ul>
+            </div>
+
+            <!-- Philips -->
+            <div class="job">
+                <div class="job-header">
+                    <div class="job-title"><span class="company">Philips Innovation Services – Eindhoven, Netherlands</span> | Software Architect</div>
+                    <div class="period">Oct 2018 – Dec 2019</div>
+                </div>
+                <p class="job-description">
+                    Contract role: software architecture and Scrum Master for medical device
+                    verification teams in a regulated environment.
+                </p>
+                <ul>
+                    <li>Designed software for verification systems where reliability and maintainability were non-negotiable</li>
+                    <li>Introduced agile practices that improved delivery and cross-team collaboration</li>
+                </ul>
+            </div>
+
+            <!-- NOFFZ -->
+            <div class="job">
+                <div class="job-header">
+                    <div class="job-title"><span class="company">NOFFZ Technologies – Tönisvorst, Germany</span> | Head of Software R&D</div>
+                    <div class="period">Feb 2015 – Sept 2018</div>
+                </div>
+                <p class="job-description">
+                    Joined as a software consultant in automotive system integration. Saw the opportunity
+                    for reusable software across the company, pitched it, and ended up leading the R&D
+                    group that built it.
+                </p>
+                <ul>
+                    <li>Defined vision, roadmap, and architecture for a shared platform used by project teams and customers</li>
+                    <li>Built and managed the R&D team from scratch — product development and people management</li>
+                    <li>Shifted the company culture from one-off project work toward reuse and long-term maintainability</li>
+                </ul>
+            </div>
+
+            <!-- ViTec -->
+            <div class="job">
+                <div class="job-header">
+                    <div class="job-title"><span class="company">ViTec – St.Petersburg, Russia</span> | Senior Software/Systems Engineer</div>
+                    <div class="period">Apr 2007 – Jan 2015</div>
+                </div>
+                <p class="job-description">
+                    Eight years building software for industrial and research systems — end-to-end,
+                    from system design to onsite commissioning. Diverse domains: steel production,
+                    avionics, defense, food manufacturing.
+                </p>
+                <ul>
+                    <li>Built distributed measurement systems and machine vision solutions</li>
+                    <li>Designed automation and control software for industrial robots and factory equipment</li>
+                </ul>
+            </div>
+        </section>
+
+        <div class="bottom-grid">
+            <!-- ========== EDUCATION ========== -->
+            <section class="education">
+                <h2>Education</h2>
+                <div class="education-item">
+                    <div class="degree">MSc in Engineering and Technologies</div>
+                    <div class="field">Information and Measurement Systems</div>
+                    <div class="institution">Peter the Great St.Petersburg Polytechnic University, 2008</div>
+                </div>
+            </section>
+
+            <!-- ========== LANGUAGES ========== -->
+            <section class="languages">
+                <h2>Languages</h2>
+                <div class="languages-list">
+                    <div class="language-item"><strong>English:</strong> Fluent</div>
+                    <div class="language-item"><strong>Russian:</strong> Native</div>
+                    <div class="language-item"><strong>Dutch:</strong> A2</div>
+                    <div class="language-item"><strong>German, Spanish, French:</strong> Bits and pieces</div>
+                </div>
+            </section>
+
+            <!-- ========== BEYOND WORK ========== -->
+            <section class="personal full-width">
+                <h2>Beyond work</h2>
+                <div class="personal-item">
+                    I make things with my hands, read, walk a lot, and enjoy experimental music,
+                    independent cinema, and contemporary art. I also build side projects: <a href="https://tinyreleases.com">tinyreleases.com</a>.
+                </div>
+            </section>
+        </div>
+        </div><!-- /.body-content -->
+    </div>
+</body>
+</html>

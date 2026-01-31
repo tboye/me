@@ -1,0 +1,22 @@
+name: Generate PDF
+
+on:
+  push:
+    paths:
+      - 'cv.html'
+  workflow_dispatch:
+
+jobs:
+  build-pdf:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+
+      - name: Generate PDF
+        run: google-chrome --headless --no-sandbox --print-to-pdf=tboye-cv.pdf --no-margins --no-pdf-header-footer file://$PWD/cv.html
+
+      - name: Upload PDF
+        uses: actions/upload-artifact@v4
+        with:
+          name: tboye-cv
+          path: tboye-cv.pdf
