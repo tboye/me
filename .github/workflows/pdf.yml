@@ -13,7 +13,8 @@ jobs:
       - uses: actions/checkout@v4
 
       - name: Generate PDF
-        run: google-chrome --headless --no-sandbox --print-to-pdf=tboye-cv.pdf --no-margins --no-pdf-header-footer file://$PWD/cv.html
+        run: |
+          google-chrome --headless --no-sandbox --virtual-time-budget=5000 --print-to-pdf=tboye-cv.pdf --no-margins --no-pdf-header-footer file://$PWD/cv.html
 
       - name: Upload PDF
         uses: actions/upload-artifact@v4
